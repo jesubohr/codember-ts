@@ -7,7 +7,7 @@ if (args.length !== 1) {
 }
 
 console.log('Executing Challenge', args[0]);
-spawn('node', [`./"RETO ${args[0]}"`], {
+spawn('node', [`./RETO-${args[0]}`], {
   stdio: "inherit",
   shell: true,
 });
