@@ -1,10 +1,4 @@
-import { join } from 'node:path'
-import { readFileSync } from 'node:fs'
-import { fileURLToPath } from 'node:url'
-
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = join(__filename, '..')
-const usersString = readFileSync(join(__dirname, 'users.txt'), 'utf-8')
+import { readFile } from '../utils/readFile.js'
 
 type User = {
   usr: string
@@ -57,5 +51,6 @@ function getValidUsers (users: string[]) {
   })
 }
 
+const usersString = readFile('RETO-1/users.txt')
 getValidUsers(formatStringToList(usersString))
 console.log(`${validUsers.length}${validUsers.at(-1)?.usr}`)
